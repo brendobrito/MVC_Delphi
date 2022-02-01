@@ -3,7 +3,7 @@
 interface
 
 uses
-  Delivery.Model.Conexao.Interfaces, Firedac.Stan.Intf, Firedac.Stan.Option,
+  Delivery.Model.Connection.Interfaces, Firedac.Stan.Intf, Firedac.Stan.Option,
   Firedac.Stan.Param, Firedac.Stan.Error, Firedac.DatS, Firedac.Phys.Intf,
   Firedac.DApt.Intf, Firedac.Stan.Async, Firedac.DApt, Firedac.Comp.DataSet,
   Firedac.Comp.Client,
@@ -44,7 +44,7 @@ Type
 implementation
 
 uses
-  System.SysUtils, Ind.Model.Firedac.Conexao;
+  System.SysUtils, Delivery.Model.Firedac.Connection;
 
 { TModelQueryFiredac }
 
@@ -126,7 +126,6 @@ end;
 destructor TModelFiredacQuery.Destroy;
 begin
   FreeAndNil(FQuery);
-  //TFDConnection(FConexao.Connection).Connected := false;
   inherited;
 end;
 
