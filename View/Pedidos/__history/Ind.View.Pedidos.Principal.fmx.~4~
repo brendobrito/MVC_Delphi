@@ -1,0 +1,117 @@
+object frmPedidos: TfrmPedidos
+  Left = 0
+  Top = 0
+  Caption = 'Pedidos'
+  ClientHeight = 632
+  ClientWidth = 1001
+  Fill.Color = xFFDBEFF4
+  Fill.Kind = Solid
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Layout4: TLayout
+    Align = Contents
+    Size.Width = 1001.000000000000000000
+    Size.Height = 632.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Rectangle6: TRectangle
+      Align = Contents
+      Fill.Color = xFF006E98
+      Opacity = 0.500000000000000000
+      Size.Width = 1001.000000000000000000
+      Size.Height = 632.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+    end
+  end
+  object Layout1: TLayout
+    Align = Left
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 6.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 6.000000000000000000
+    Size.Width = 375.000000000000000000
+    Size.Height = 616.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Rectangle1: TRectangle
+      Align = Client
+      Fill.Color = claWhite
+      HitTest = False
+      Size.Width = 375.000000000000000000
+      Size.Height = 616.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 10.000000000000000000
+      YRadius = 10.000000000000000000
+      object Layout3: TLayout
+        Align = Client
+        Margins.Bottom = 7.000000000000000000
+        Size.Width = 375.000000000000000000
+        Size.Height = 552.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object ScrollBoxPedidos: TScrollBox
+          Align = Client
+          Size.Width = 375.000000000000000000
+          Size.Height = 552.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Viewport.Width = 375.000000000000000000
+          Viewport.Height = 552.000000000000000000
+        end
+      end
+      object Layout6: TLayout
+        Align = Top
+        Size.Width = 375.000000000000000000
+        Size.Height = 57.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object Edit1: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 0
+          Position.X = 8.000000000000000000
+          Position.Y = 24.000000000000000000
+          Size.Width = 161.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          TextPrompt = 'Buscar por Nome/Tel'
+        end
+        object ButtonTeste: TButton
+          Position.X = 248.000000000000000000
+          Position.Y = 24.000000000000000000
+          TabOrder = 1
+          Text = 'Teste'
+          OnClick = ButtonTesteClick
+        end
+      end
+    end
+  end
+  object Layout2: TLayout
+    Align = Client
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 6.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Size.Width = 586.000000000000000000
+    Size.Height = 616.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object Rectangle2: TRectangle
+      Align = Client
+      Fill.Color = claWhite
+      Size.Width = 586.000000000000000000
+      Size.Height = 616.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 10.000000000000000000
+      YRadius = 10.000000000000000000
+    end
+  end
+end

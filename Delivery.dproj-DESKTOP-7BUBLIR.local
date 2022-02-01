@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/11/22 22:49:56.000.298,=C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/05/10 00:37:07.000.237,=C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/05/10 00:55:09.000.577,=C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/05/10 01:07:02.000.290,=C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/05/10 01:17:48.000.890,=C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/05/11 21:55:14.000.618,=C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/05/11 21:57:45.000.571,C:\Users\Richard\OneDrive\Delivery\View\Ind.View.Principal.pas=C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/05/11 21:57:45.000.571,C:\Users\Richard\OneDrive\Delivery\View\Ind.View.Principal.fmx=C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>2021/05/11 21:57:55.000.012,C:\Users\Richard\OneDrive\Delivery\Delivery.dproj=C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2021/05/11 22:08:02.000.872,=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/05/11 22:08:27.000.146,C:\Users\Richard\OneDrive\Delivery\Controller\Ind.View.Controller.Interfaces.pas=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/05/11 22:18:09.000.586,=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/05/11 22:18:20.000.262,C:\Users\Richard\OneDrive\Delivery\Controller\Ind.View.Controller.pas=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/05/11 22:19:38.000.490,C:\Users\Richard\OneDrive\Delivery\Controller\Ind.Controller.Interfaces.pas=C:\Users\Richard\OneDrive\Delivery\Controller\Ind.View.Controller.Interfaces.pas</Transaction>
+    <Transaction>2021/05/11 22:19:52.000.959,C:\Users\Richard\OneDrive\Delivery\Controller\Ind.Controller.pas=C:\Users\Richard\OneDrive\Delivery\Controller\Ind.View.Controller.pas</Transaction>
+    <Transaction>2021/05/11 22:25:40.000.005,=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/05/11 22:25:59.000.743,C:\Users\Richard\OneDrive\Delivery\Controller\Ind.Controller.Forms.pas=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/05/11 22:43:55.000.336,=C:\Users\Richard\OneDrive\Delivery\Unit2.pas</Transaction>
+    <Transaction>2021/05/11 22:58:22.000.197,C:\Users\Richard\OneDrive\Delivery\View\Pedidos\Ind.View.Pedidos.Principal.pas=C:\Users\Richard\OneDrive\Delivery\Unit2.pas</Transaction>
+    <Transaction>2021/05/11 22:58:22.000.197,C:\Users\Richard\OneDrive\Delivery\View\Pedidos\Ind.View.Pedidos.Principal.fmx=C:\Users\Richard\OneDrive\Delivery\Unit2.fmx</Transaction>
+    <Transaction>2021/05/11 23:43:42.000.071,=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/05/11 23:46:19.000.500,C:\Users\Richard\OneDrive\Delivery\Controller\Pedidos\Ind.Controller.Pedidos.pas=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/05/11 23:49:14.000.311,=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/05/11 23:55:21.000.938,C:\Users\Richard\OneDrive\Delivery\Controller\Pedidos\Ind.Controller.Pedidos.DrawObjects.pas=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/05/12 00:37:49.000.165,=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/05/12 12:56:58.000.779,=C:\Users\Brendo\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/05/12 13:04:23.000.921,C:\Users\Brendo\OneDrive\Delivery\Unit1.pas=C:\Users\Brendo\OneDrive\Delivery\Controller\Pedidos\Ind.Controller.StatusPedido.pas</Transaction>
+    <Transaction>2021/07/03 20:44:17.000.775,=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/07/03 21:20:07.000.900,C:\Users\Richard\OneDrive\Delivery\View\Cadastros\Produtos\View.Cadastros.Produtos.Principal.fmx=C:\Users\Richard\OneDrive\Delivery\Unit1.fmx</Transaction>
+    <Transaction>2021/07/03 21:20:07.000.900,C:\Users\Richard\OneDrive\Delivery\View\Cadastros\Produtos\View.Cadastros.Produtos.Principal.pas=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
+    <Transaction>2021/07/03 21:24:07.000.193,C:\Users\Richard\OneDrive\Delivery\View\Cadastros\Produtos\Ind.View.Cadastros.Produtos.Principal.fmx=C:\Users\Richard\OneDrive\Delivery\View\Cadastros\Produtos\View.Cadastros.Produtos.Principal.fmx</Transaction>
+    <Transaction>2021/07/03 21:24:07.000.193,C:\Users\Richard\OneDrive\Delivery\View\Cadastros\Produtos\Ind.View.Cadastros.Produtos.Principal.pas=C:\Users\Richard\OneDrive\Delivery\View\Cadastros\Produtos\View.Cadastros.Produtos.Principal.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>

@@ -1,0 +1,21 @@
+unit Ind.Controller.Interfaces;
+
+interface
+
+type
+  iControllerForms = interface;
+
+  iController = interface
+   ['{E54B8BAE-DB5E-4E4C-9513-47A0619A412F}']
+   function CreateForm : iControllerForms;
+  end;
+
+  iControllerForms = interface
+    ['{2828AB60-1C1F-4F4A-9B70-A15B18B82AD4}']
+    function Pedidos : iControllerForms;
+    function &End : iController;
+  end;
+
+implementation
+
+end.

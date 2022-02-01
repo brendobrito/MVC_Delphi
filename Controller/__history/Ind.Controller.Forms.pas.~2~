@@ -1,0 +1,79 @@
+unit Ind.Controller.Forms;
+
+interface
+
+uses
+  Ind.Controller.Interfaces, FMX.Types, System.SysUtils;
+type
+  TControllerForms = class(TInterfacedObject, iControllerForms)
+    private
+      FParent : iController;
+    public
+      constructor Create(Parent : iController);
+      destructor Destroy; override;
+      class function New(Parent : iController) : iControllerForms;
+      function CreateForm(ClassName: String; aParent : TFMXObject = nil) : iControllerForms;
+      function &End : iController;
+  end;
+
+implementation
+
+uses
+  FMX.Forms, System.Classes;
+
+{ TControllerForms }
+
+
+function TControllerForms.&End: iController;
+begin
+  Result := FParent;
+end;
+
+constructor TControllerForms.Create(Parent : iController);
+begin
+  FParent := Parent;
+end;
+
+destructor TControllerForms.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TControllerForms.New(Parent : iController): iControllerForms;
+begin
+  Result := Self.Create(Parent);
+end;
+
+function TControllerForms.CreateForm(ClassName: String; aParent : TFMXObject = nil): iControllerForms;
+var
+  ObjFMX : TFMXObjectClass;
+  newForm : TCustomForm;
+begin
+  Result := self;
+
+  objFMX := TFMXObjectClass(GetClass(ClassName));
+  try
+    newForm := (objFMX.Create(nil) as TCustomForm);
+    newForm.Position := TFormPosition.ScreenCenter;
+
+    if aParent <> nil then begin
+       newForm.Parent := aParent;
+       newForm.Show;
+       exit;
+    end;
+
+    try
+      if aParent = nil then
+      newForm.ShowModal;
+
+    finally
+      if Assigned(newForm) then
+      newForm.Release;
+    end;
+  except
+    raise Exception.Create('Erro ao criar formulário, objeto não existe '+ClassName);
+  end;
+end;
+
+end.

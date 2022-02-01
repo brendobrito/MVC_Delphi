@@ -1,0 +1,169 @@
+unit Ind.Controller.Pedidos;
+
+interface
+
+uses
+  Ind.Controller.Interfaces, FMX.Types, System.Generics.Collections,
+  System.Classes;
+type
+  TControllerPedidos = class(TInterfacedObject, iControllerPedidos)
+    private
+      [weak]
+      FParent : iController;
+      FBind : TFMXObject;
+      FAtualizarBind : boolean;
+      FListaObjectos : TDictionary<integer, iControllerPedidosDrawObjects>;
+      FID : string;
+      FThread : TThread;
+    public
+      constructor Create(Parent : iController);
+      destructor Destroy; override;
+      class function New(Parent : iController) : iControllerPedidos;
+      function Bind(value : TFMXObject) : iControllerPedidos; overload;
+      function Bind : TFMXObject; overload;
+      function novoPedido(id : string) : iControllerPedidos;
+      function alterarPedido(id : string) : iControllerPedidos;
+      function StatusGetColor(value: TPedidoStatus): Cardinal;
+      function StatusGetString(value: TPedidoStatus): string;
+      function AtualizarBind(Segundos : integer) : iControllerPedidos; overload;
+      function AtualizarBind(value : boolean) : iControllerPedidos; overload;
+      function &End : iController;
+  end;
+
+implementation
+
+uses
+  FMX.Forms, Ind.Controller.Pedidos.DrawObjects,
+  System.UITypes, System.SysUtils;
+
+{ TControllerPedidos }
+
+function TControllerPedidos.&End: iController;
+begin
+  Result := FParent;
+end;
+
+function TControllerPedidos.alterarPedido(id: string): iControllerPedidos;
+begin
+  Result := self;
+  FID := id;
+end;
+
+function TControllerPedidos.Bind(value: TFMXObject): iControllerPedidos;
+begin
+  Result := self;
+  FBind := value;
+end;
+
+function TControllerPedidos.AtualizarBind(Segundos: integer): iControllerPedidos;
+var
+ aPedido : iControllerPedidosDrawObjects;
+begin
+  Result := self;
+  FAtualizarBind := true;
+
+  FThread := TThread.CreateAnonymousThread(
+  procedure
+  var
+  i : integer;
+  begin
+  //    while FAtualizarBind do
+  //    begin
+        Sleep(Segundos*1000);
+        for I := 1 to 10 do
+        begin
+          TThread.Synchronize (TThread.CurrentThread,
+          procedure
+          begin
+            if FListaObjectos.TryGetValue(i, aPedido) = false then
+            FListaObjectos.Add(i,TControllerPedidosDrawObjects.New(self) );//.id(i).horaPedido('01:06').nomeCliente('teste').status(tpEmPreparo));
+
+          end);
+    //    end;
+      end;
+  end);
+  FThread.FreeOnTerminate := true;
+  FThread.Start;
+end;
+
+function TControllerPedidos.AtualizarBind(value: boolean): iControllerPedidos;
+begin
+  Result := self;
+  FAtualizarBind := value;
+end;
+
+function TControllerPedidos.Bind: TFMXObject;
+begin
+  Result := FBind;
+end;
+
+constructor TControllerPedidos.Create(Parent : iController);
+begin
+  FParent := Parent;
+  FListaObjectos := TDictionary<integer, iControllerPedidosDrawObjects>.Create;
+end;
+
+destructor TControllerPedidos.Destroy;
+begin
+  FAtualizarBind := false;
+  FListaObjectos.Clear;
+  FreeAndNil(FListaObjectos);
+  inherited;
+end;
+
+class function TControllerPedidos.New(Parent : iController): iControllerPedidos;
+begin
+  Result := Self.Create(Parent);
+end;
+
+function TControllerPedidos.novoPedido(id: string): iControllerPedidos;
+begin
+  Result := self;
+  FID := id;
+end;
+
+
+function TControllerPedidos.StatusGetColor(value: TPedidoStatus): Cardinal;
+var
+  Lista : TList<Cardinal>;
+begin
+  Lista := TList<Cardinal>.Create;
+
+  try
+    Lista.Insert(Integer(TPedidoStatus.tpEmDigitacao), $FF949494);
+    Lista.Insert(Integer(TPedidoStatus.tpEmEspera), $FFBB1B1B);
+    Lista.Insert(Integer(TPedidoStatus.tpEmPreparo), $FFF98323);
+    Lista.Insert(Integer(TPedidoStatus.tpProntoParaEntrega), $FF0086E5);
+    Lista.Insert(Integer(TPedidoStatus.tpConcluido), $FF04A620);
+
+    Result := Lista[Integer(value)];
+  except
+    Lista.Free;
+    Result := 0;
+  end;
+
+  Lista.Free;
+end;
+function TControllerPedidos.StatusGetString(value: TPedidoStatus): string;
+  var
+  Lista : TList<string>;
+begin
+  Lista := TList<string>.Create;
+
+  try
+    Lista.Insert(Integer(TPedidoStatus.tpEmDigitacao), 'Em digitação');
+    Lista.Insert(Integer(TPedidoStatus.tpEmEspera), 'Em espera');
+    Lista.Insert(Integer(TPedidoStatus.tpEmPreparo), 'Em preparação');
+    Lista.Insert(Integer(TPedidoStatus.tpProntoParaEntrega), 'Pronto para entrega');
+    Lista.Insert(Integer(TPedidoStatus.tpConcluido), 'Concluído');
+
+    Result := Lista[Integer(value)];
+  except
+    Lista.Free;
+    Result := 'ERRO';
+  end;
+
+  Lista.Free;
+end;
+
+end.
