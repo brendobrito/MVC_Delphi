@@ -33,7 +33,7 @@ uses
   FMX.Forms,
   System.UITypes,
   System.SysUtils,
-    Ind.Controller.StatusPedido;
+    Delivery.Controller.StatusPedido;
 
 { TControllerPedidos }
 

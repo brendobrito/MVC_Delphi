@@ -41,7 +41,7 @@ var
 implementation
 
 uses
-  Ind.Controller, FMX.InertialMovement;
+  Delivery.Controller, FMX.InertialMovement;
 
 {$R *.fmx}
 

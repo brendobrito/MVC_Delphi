@@ -1,104 +1,70 @@
-unit Ind.Model.Conexoes.Interfaces;
+unit Delivery.Model.Connection.Interfaces;
 
 interface
 
 uses
-  System.Classes, Data.DB, Ind.Model.DataSet.Interfaces, FireDAC.Comp.Client,
-  FireDAC.Stan.Option;
+  Data.DB, System.Classes, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Comp.Client;
 
 type
-  iModelConexaoParametros = interface;
-  iModelConexaoParams = interface;
-  iQuery = interface;
+  TTypeConnection = (tpFiredacMySQL, tpFiredacConfigs);
 
-  TChangeDataSet = procedure of Object;
+  iModelQuery = interface;
+  iModelQuerySQL = interface;
 
   iModelConexao = interface
-    ['{E8538D27-DFF2-4485-A303-616176681A93}']
-    function Conectar : iModelConexao;
-    function Connected : Boolean overload;
-    function Connected(Value : Boolean) : iModelConexao overload;
-    function EndConexao: TComponent;
-    function Parametros: iModelConexaoParametros;
-    function Params: iModelConexaoParams;
-    function Ping: Boolean;
-    function DriverName : String;
-    function FDCon: TFDCustomConnection;
+    ['{DFEF8A11-246E-4D60-ABD2-50867699AA3E}']
+    function Connection: TCustomConnection;
+    function Database(aValue: String): iModelConexao;
+    function UserName(aValue: String): iModelConexao;
+    function Password(aValue: String): iModelConexao;
+    function DriverID(aValue: String): iModelConexao;
+    function DriverName: string;
+    function IP(aValue: String): iModelConexao;
+    function Porta(aValue: Integer): iModelConexao;
+    function AddParam(aValue: string): iModelConexao;
+    function StartTransaction: iModelConexao;
+    function Commit: iModelConexao;
+    function Connect: iModelConexao;
+    function Desconnect: iModelConexao;
+    function RollBack: iModelConexao;
   end;
 
-  iModelConexaoParametros = interface
-    ['{69BA62BF-43C2-495B-8E0B-C5B6D509FFCB}']
-    function Database(Value: String): iModelConexaoParametros;
-    function UserName(Value: String): iModelConexaoParametros;
-    function Password(Value: String): iModelConexaoParametros;
-    function DriverID(Value: String): iModelConexaoParametros;
-    function Server(Value: String): iModelConexaoParametros;
-    function Porta(Value: Integer): iModelConexaoParametros;
-    function EndParametros: iModelConexao;
+  iModelConexaoFactory = interface
+    ['{D5383A0B-A7DB-42B8-BD59-538E7AF49850}']
+    function Conexao: iModelConexao;
+    function Query: iModelQuery;
+    function TipoConexao: TTypeConnection; overload;
+    function TipoConexao(aValue: TTypeConnection)
+      : iModelConexaoFactory; overload;
   end;
 
-  iModelConexaoParams = interface
-    ['{69BA62BF-43C2-495B-8E0B-C5B6D509FFCB}']
-     function Add(Value: String): iModelConexaoParams;
-     function &End: iModelConexao;
+  iModelQuery = interface
+    ['{9D8E55AB-22E0-440D-A77F-820B8B7F6D5C}']
+    function Query: TDataSet;
+    function DataSet: TDataSet;
+    function Open(aSQL: String): iModelQuery; overload;
+    function Open: iModelQuery; overload;
+    function ExecSQL(aSQL: String): integer; overload;
+    function ExecSQL: iModelQuery; overload;
+    function Fields: TFields;
+    function ParamByName(aValue: string): TFDParam;
+    function SQL: iModelQuerySQL;
+    function Close: iModelQuery;
+    function Connection(aValue: iModelConexao): iModelQuery; overload;
+    function FieldByName(aValue: string): TField;
+    function FetchOptions: TFDFetchOptions;
+    function ClearSQL : iModelQuerySQL;
   end;
 
-  iModelDataSet = interface
-    ['{5CFF1908-225F-4A05-A633-914A35BF2858}']
-    function Open(aTable: String): iModelDataSet;
-    function EndDataSet: TComponent;
+  iModelQuerySQL = interface
+    ['{04456437-FFEF-438E-AF26-E8933BBA5CDD}']
+    function Clear : iModelQuerySQL;
+    function Add(value : string) : iModelQuerySQL;
+    function Text : string; overload;
+    function Text(value : string) : iModelQuery; overload;
+    function &End : iModelQuery;
   end;
-
-  iModelFactoryConexao = interface
-    ['{30C0A523-319F-46E8-97F5-F4C7B32BDF95}']
-    function ConexaoFiredac : iModelConexao;
-  end;
-
-  iModelFactoryDataSet = interface
-    ['{EA1766BB-437B-4133-95D5-73AF1EA851D7}']
-    function DataSetFiredac(Conexao : iModelConexao) : iModelDataSet;
-  end;
-
-  iModelFactoryQuery = interface
-   ['{E5F8F293-D07D-4157-B76F-6A5B6800566C}']
-   function Query : iQuery;
-  end;
-
-  iQuery = interface
-    ['{BA7F4622-7AA4-413D-B9CD-CADAB16DF714}']
-    function FetchOptions : TFDFetchOptions;
-    function Open(aSQL: String): iQuery;
-    function Close : iQuery;
-    function SQL : TStrings;
-    function Params : TParams;
-    function ParamByName(Value : String) : TParam;
-    function ExecSQL : iQuery; overload;
-    function ExecSQL(aSQL : String) : iQuery; overload;
-    function DataSet : TDataSet; overload;
-    function DataSet(Value : TDataSet) : iQuery; overload;
-    function DataSource(Value : TDataSource) : iQuery;
-    function Fields : TFields;
-    function &End: TComponent;
-    function Tag(Value : Integer) : iQuery;
-    function LocalSQL(Value : TComponent) : iQuery;
-    function UpdateTableName(Tabela : String) : iQuery;
-    function Connection(Conexao: iModelConexao;
-      ConexaoSecundaria: iModelConexao): iQuery; overload;
-    function Connection(Conexao: iModelConexao): iQuery; overload;
-    function FieldByName(Value : string): TField;
-
-  end;
-
-  iDriver = interface
-    ['{F8F3E0E2-4333-40CD-8A4E-7B7790F2FA73}']
-    function Conexao : iModelConexao;
-    function Query : iQuery;
-    function DataSet : iDataSet;
-    function Cache : iDriverProxy;
-    function LimitCacheRegister(Value : Integer) : iDriver;
-    function FConnection(const value : TFDConnection) : iDriver overload;
-  end;                                  //remover firedac alterar p/ iconexao
-
 
 implementation
 

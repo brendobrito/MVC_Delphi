@@ -11,7 +11,10 @@ uses
   Delivery.Controller.Pedidos in 'Controller\Pedidos\Delivery.Controller.Pedidos.pas',
   Delivery.Controller.Pedidos.DrawObjects in 'Controller\Pedidos\Delivery.Controller.Pedidos.DrawObjects.pas',
   Delivery.Controller.StatusPedido in 'Controller\Pedidos\Delivery.Controller.StatusPedido.pas',
-  Ind.View.Cadastros.Produtos.Principal in 'View\Cadastros\Produtos\Ind.View.Cadastros.Produtos.Principal.pas' {frmCadastrosProdutos};
+  Ind.View.Cadastros.Produtos.Principal in 'View\Cadastros\Produtos\Ind.View.Cadastros.Produtos.Principal.pas' {frmCadastrosProdutos},
+  Delivery.Model.Connection.Interfaces in 'Model\Connection\Delivery.Model.Connection.Interfaces.pas',
+  Delivery.Model.Firedac.Connection in 'Model\Connection\Firedac\Delivery.Model.Firedac.Connection.pas',
+  Delivery.Model.Firedac.Query in 'Model\Connection\Firedac\Delivery.Model.Firedac.Query.pas';
 
 {$R *.res}
 

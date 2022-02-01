@@ -1,0 +1,71 @@
+unit Ind.Model.Conexao.Factory;
+
+interface
+
+uses
+  Ind.Model.Conexao.Interfaces;
+
+Type
+  TModelConexaoFactory = class(TInterfacedObject, iModelConexaoFactory)
+    private
+      FTypeConnection : TTypeConnection;
+    public
+      constructor Create;
+      destructor Destroy; override;
+      class function New : iModelConexaoFactory;
+      function Conexao : iModelConexao;
+      function Query : iModelQuery;
+      function TipoConexao : TTypeConnection; overload;
+      function TipoConexao(aValue : TTypeConnection) : iModelConexaoFactory; overload;
+
+  end;
+
+implementation
+
+uses
+  Ind.Model.Firedac.Conexao, Ind.Model.Firedac.Query, UDM;
+
+{ TModelConexaoFactory }
+
+function TModelConexaoFactory.Conexao: iModelConexao;
+begin
+  case FTypeConnection of
+    tpFiredacConfigs: Result := dm.ConnectionSQLite;
+    tpFiredacMySQL: Result := dm.ConnectionMySQL;
+  end;
+end;
+
+constructor TModelConexaoFactory.Create;
+begin
+  FTypeConnection := tpFiredacMySQL;
+end;
+
+destructor TModelConexaoFactory.Destroy;
+begin
+
+  inherited;
+end;
+
+function TModelConexaoFactory.Query: iModelQuery;
+begin
+  Result := TModelFiredacQuery.New(Self.Conexao);
+end;
+
+function TModelConexaoFactory.TipoConexao(
+  aValue: TTypeConnection): iModelConexaoFactory;
+begin
+  Result := self;
+  FTypeConnection := aValue;
+end;
+
+function TModelConexaoFactory.TipoConexao: TTypeConnection;
+begin
+  Result := FTypeConnection;
+end;
+
+class function TModelConexaoFactory.New: iModelConexaoFactory;
+begin
+  Result := Self.Create;
+end;
+
+end.
