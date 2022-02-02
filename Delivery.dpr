@@ -14,13 +14,15 @@ uses
   Ind.View.Cadastros.Produtos.Principal in 'View\Cadastros\Produtos\Ind.View.Cadastros.Produtos.Principal.pas' {frmCadastrosProdutos},
   Delivery.Model.Connection.Interfaces in 'Model\Connection\Delivery.Model.Connection.Interfaces.pas',
   Delivery.Model.Firedac.Connection in 'Model\Connection\Firedac\Delivery.Model.Firedac.Connection.pas',
-  Delivery.Model.Firedac.Query in 'Model\Connection\Firedac\Delivery.Model.Firedac.Query.pas';
+  Delivery.Model.Firedac.Query in 'Model\Connection\Firedac\Delivery.Model.Firedac.Query.pas',
+  Delivery.Model.Pedidos in 'Model\Delivery.Model.Pedidos.pas',
+  Delivery.Model.Interfaces in 'Model\Delivery.Model.Interfaces.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  ReportMemoryLeaksOnShutdown := true;
+ // ReportMemoryLeaksOnShutdown := true;
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.Run;
 end.

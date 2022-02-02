@@ -14,10 +14,9 @@ Type
   private
     FQuery: TFDQuery;
     FConexao: iModelConexao;
+
   public
-    constructor Create(aValue: iModelConexao); overload;
     destructor Destroy; override;
-    class function New(aValue: iModelConexao): iModelQuery; overload;
     constructor Create; overload;
     class function New: iModelQuery; overload;
     function Query: TDataSet;
@@ -93,30 +92,28 @@ end;
 constructor TModelFiredacQuery.Create;
 begin
   FQuery := TFDQuery.Create(nil);
-end;
 
-constructor TModelFiredacQuery.Create(aValue: iModelConexao);
-begin
-  FConexao := aValue;
-  FQuery := TFDQuery.Create(nil);
-
-  if FConexao = nil then begin
-
+  try
    FConexao :=
      TModelFiredacConexao
        .New
-       .Database(PChar(GetCurrentDir + '\DB\'+'db.db'))
+       .Database(PChar(GetCurrentDir + '\db.db'))
        .UserName('')
        .Password('')
        .DriverID('SQLite')
        .IP('')
        .AddParam('LockingMode=Normal')
        .AddParam('SharedCache=True')
-     .Connect
+     .Connect;
+
+  except
+  on e:Exception do
+    raise Exception.Create(e.message);
   end;
 
   FQuery.Connection := TFDConnection(FConexao.Connection);
 end;
+
 
 function TModelFiredacQuery.DataSet: TDataSet;
 begin
@@ -186,11 +183,6 @@ function TModelFiredacQuery.Open: iModelQuery;
 begin
   Result := self;
   FQuery.Open;
-end;
-
-class function TModelFiredacQuery.New(aValue: iModelConexao): iModelQuery;
-begin
-  Result := self.Create(aValue);
 end;
 
 function TModelFiredacQuery.Open(aSQL: String): iModelQuery;

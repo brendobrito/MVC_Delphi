@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.Ani, FMX.Effects, FMX.Layouts, FMX.TabControl, FMX.Controls.Presentation,
-  FMX.StdCtrls, Delivery.Controller.Interfaces;
+  FMX.StdCtrls, Delivery.Controller.Interfaces, FireDAC.UI.Intf,
+  FireDAC.FMXUI.Wait, FireDAC.Stan.Intf, FireDAC.Comp.UI;
 
 type
   TfrmPrincipal = class(TForm)
@@ -75,6 +76,7 @@ type
     Text8: TText;
     Image5: TImage;
     Layout12: TLayout;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     procedure Text3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Rectangle1MouseMove(Sender: TObject; Shift: TShiftState; X,

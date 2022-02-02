@@ -11,10 +11,11 @@ uses
 
 Type
   TModelFiredacConexao = class(TInterfacedObject, iModelConexao)
+  FDGUIxWaitCursor1: TFDGUIxWaitCursor;
+  FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink;
+
   private
     FConexao: TFDConnection;
-    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
-    FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink;
     FParams : TStringList;
     function Caminho: string;
 
@@ -89,11 +90,13 @@ end;
 
 constructor TModelFiredacConexao.Create;
 begin
-  FDGUIxWaitCursor1 := TFDGUIxWaitCursor.Create(nil);
-  FDGUIxWaitCursor1.ScreenCursor := gcrNone;
-
-  FDPhysSQLiteDriverLink1 := TFDPhysSQLiteDriverLink.Create(nil);
   FConexao := TFDConnection.Create(nil);
+
+
+
+  FDGUIxWaitCursor1 := TFDGUIxWaitCursor.Create(nil);
+ // FDGUIxWaitCursor1.ScreenCursor := gcrNone;
+  FDPhysSQLiteDriverLink1 := TFDPhysSQLiteDriverLink.Create(nil);
 end;
 
 function TModelFiredacConexao.Caminho : string;

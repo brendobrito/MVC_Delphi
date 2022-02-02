@@ -4,7 +4,8 @@ interface
 
 uses
   Delivery.Controller.Interfaces, FMX.Types, System.Generics.Collections,
-  System.Classes,Delivery.Controller.Pedidos.DrawObjects;
+  System.Classes,Delivery.Controller.Pedidos.DrawObjects,
+  Delivery.Model.Interfaces;
 type
   TControllerPedidos = class(TInterfacedObject, iControllerPedidos)
     private
@@ -14,6 +15,7 @@ type
       FAtualizarBind : boolean;
       FListaObjectos : TObjectDictionary<integer, TControllerPedidosDrawObjects>;
       FID : string;
+      FModel : iModelPedidos;
     public
       constructor Create(Parent : iController);
       destructor Destroy; override;
@@ -33,7 +35,7 @@ uses
   FMX.Forms,
   System.UITypes,
   System.SysUtils,
-    Delivery.Controller.StatusPedido;
+    Delivery.Controller.StatusPedido, Delivery.Model.Pedidos, Data.DB;
 
 { TControllerPedidos }
 
@@ -65,19 +67,26 @@ begin
   aThread := TThread.CreateAnonymousThread(
   procedure
   var
-  i : integer;
+    i : integer;
+    sDataSet : TDataSet;
   begin
+      sDataSet := FModel.Pedidos;
+
       while FAtualizarBind do
       begin
         Sleep(100);
-        for I := 1 to 10 do
+        for I := 0 to sDataSet.RecordCount-1 do
         begin
           TThread.Synchronize (TThread.CurrentThread,
           procedure
           begin
-             if FListaObjectos.TryGetValue(i, aPedido) = false then
-               FListaObjectos.Add(i, TControllerPedidosDrawObjects.Create(Bind).id(i).horaPedido('01:06').nomeCliente('teste').status(tpEmPreparo));
+            if FListaObjectos.TryGetValue(i, aPedido) = false then begin
+               FListaObjectos.Add(i, TControllerPedidosDrawObjects.Create(Bind).id(sDataSet.FieldByName('idPedido').value).horaPedido(sDataSet.FieldByName('horario').value).nomeCliente(sDataSet.FieldByName('Nome').AsString).status(tpEmPreparo));
+
+               sDataSet.Next;
+            end;
           end);
+
         end;
         Sleep(Segundos*1000);
       end;
@@ -101,6 +110,8 @@ constructor TControllerPedidos.Create(Parent : iController);
 begin
   FParent := Parent;
   FListaObjectos := TObjectDictionary<integer, TControllerPedidosDrawObjects>.Create;
+
+  FModel := TModelPedidos.New;
 end;
 
 destructor TControllerPedidos.Destroy;

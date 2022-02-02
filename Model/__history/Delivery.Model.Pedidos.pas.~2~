@@ -1,0 +1,49 @@
+unit Delivery.Model.Pedidos;
+
+interface
+
+uses
+  Delivery.Model.Interfaces, Data.DB;
+type
+  TModelPedidos = class(TInterfacedObject, iModelPedidos)
+    private
+    public
+      constructor Create;
+      destructor Destroy; override;
+      class function New: iModelPedidos;
+      function QuantidadeDePedidos : integer;
+      function Pedidos : TDataSet;
+  end;
+
+implementation
+
+
+{ TModelPedidos }
+
+constructor TModelPedidos.Create;
+begin
+
+end;
+
+destructor TModelPedidos.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TModelPedidos.New: iModelPedidos;
+begin
+
+end;
+
+function TModelPedidos.Pedidos: TDataSet;
+begin
+
+end;
+
+function TModelPedidos.QuantidadeDePedidos: integer;
+begin
+
+end;
+
+end.

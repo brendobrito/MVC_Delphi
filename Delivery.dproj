@@ -315,6 +315,8 @@
         <DCCReference Include="Model\Connection\Delivery.Model.Connection.Interfaces.pas"/>
         <DCCReference Include="Model\Connection\Firedac\Delivery.Model.Firedac.Connection.pas"/>
         <DCCReference Include="Model\Connection\Firedac\Delivery.Model.Firedac.Query.pas"/>
+        <DCCReference Include="Model\Delivery.Model.Pedidos.pas"/>
+        <DCCReference Include="Model\Delivery.Model.Interfaces.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

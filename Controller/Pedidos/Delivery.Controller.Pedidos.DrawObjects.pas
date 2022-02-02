@@ -154,7 +154,7 @@ begin
 
   if not Assigned(FNomeCliente) then begin
 
-    FNomeCliente := TLabel.Create(FRectangleBase);
+    FNomeCliente := TLabel.Create(Nil);
     with FNomeCliente do
     begin
       Parent := FRectangleBase;
@@ -166,6 +166,9 @@ begin
       TStyledSetting.FontColor];
       TextSettings.Font.Size := 15;
       TextSettings.HorzAlign := TTextAlign.Leading;
+
+
+      TextSettings.FontColor := $FF656565;
     end;
   end;
 

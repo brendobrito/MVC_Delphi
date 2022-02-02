@@ -1,0 +1,19 @@
+unit Delivery.Model.Interfaces;
+
+interface
+
+uses
+  FMX.Types, Data.DB;
+
+type
+
+  iModelPedidos = interface
+   ['{82ECDA7E-BE4B-430C-91F7-DD51D7B3CECC}']
+     function QuantidadeDePedidos : integer;
+     function Pedidos : TDataSet;
+  end;
+
+
+implementation
+
+end.

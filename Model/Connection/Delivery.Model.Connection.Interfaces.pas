@@ -13,7 +13,7 @@ type
   iModelQuerySQL = interface;
 
   iModelConexao = interface
-    ['{DFEF8A11-246E-4D60-ABD2-50867699AA3E}']
+    ['{E2F0AC9B-79B3-4DAC-8991-D99F03AA4E8D}']
     function Connection: TCustomConnection;
     function Database(aValue: String): iModelConexao;
     function UserName(aValue: String): iModelConexao;
@@ -31,7 +31,7 @@ type
   end;
 
   iModelConexaoFactory = interface
-    ['{D5383A0B-A7DB-42B8-BD59-538E7AF49850}']
+  ['{2C5A618E-1A69-441B-92E6-5BA65BA0CCF7}']
     function Conexao: iModelConexao;
     function Query: iModelQuery;
     function TipoConexao: TTypeConnection; overload;
@@ -40,7 +40,7 @@ type
   end;
 
   iModelQuery = interface
-    ['{9D8E55AB-22E0-440D-A77F-820B8B7F6D5C}']
+   ['{2026F4BD-8BDC-437A-8E45-B88846057DFF}']
     function Query: TDataSet;
     function DataSet: TDataSet;
     function Open(aSQL: String): iModelQuery; overload;
@@ -58,7 +58,7 @@ type
   end;
 
   iModelQuerySQL = interface
-    ['{04456437-FFEF-438E-AF26-E8933BBA5CDD}']
+   ['{02135FC3-01A7-4D7F-8E59-7B4780A11EB0}']
     function Clear : iModelQuerySQL;
     function Add(value : string) : iModelQuerySQL;
     function Text : string; overload;

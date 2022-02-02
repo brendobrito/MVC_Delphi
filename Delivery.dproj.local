@@ -7,8 +7,8 @@
     <Transaction>2021/05/10 01:07:02.000.290,=C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2021/05/10 01:17:48.000.890,=C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2021/05/11 21:55:14.000.618,=C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2021/05/11 21:57:45.000.571,C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\Richard\OneDrive\Delivery\View\Ind.View.Principal.fmx</Transaction>
     <Transaction>2021/05/11 21:57:45.000.571,C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Richard\OneDrive\Delivery\View\Ind.View.Principal.pas</Transaction>
+    <Transaction>2021/05/11 21:57:45.000.571,C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\Richard\OneDrive\Delivery\View\Ind.View.Principal.fmx</Transaction>
     <Transaction>2021/05/11 21:57:55.000.012,C:\Users\Richard\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Richard\OneDrive\Delivery\Delivery.dproj</Transaction>
     <Transaction>2021/05/11 22:08:02.000.872,=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
     <Transaction>2021/05/11 22:08:27.000.146,C:\Users\Richard\OneDrive\Delivery\Unit1.pas=C:\Users\Richard\OneDrive\Delivery\Controller\Ind.View.Controller.Interfaces.pas</Transaction>
@@ -19,8 +19,8 @@
     <Transaction>2021/05/11 22:25:40.000.005,=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
     <Transaction>2021/05/11 22:25:59.000.743,C:\Users\Richard\OneDrive\Delivery\Unit1.pas=C:\Users\Richard\OneDrive\Delivery\Controller\Ind.Controller.Forms.pas</Transaction>
     <Transaction>2021/05/11 22:43:55.000.336,=C:\Users\Richard\OneDrive\Delivery\Unit2.pas</Transaction>
-    <Transaction>2021/05/11 22:58:22.000.197,C:\Users\Richard\OneDrive\Delivery\Unit2.pas=C:\Users\Richard\OneDrive\Delivery\View\Pedidos\Ind.View.Pedidos.Principal.pas</Transaction>
     <Transaction>2021/05/11 22:58:22.000.197,C:\Users\Richard\OneDrive\Delivery\Unit2.fmx=C:\Users\Richard\OneDrive\Delivery\View\Pedidos\Ind.View.Pedidos.Principal.fmx</Transaction>
+    <Transaction>2021/05/11 22:58:22.000.197,C:\Users\Richard\OneDrive\Delivery\Unit2.pas=C:\Users\Richard\OneDrive\Delivery\View\Pedidos\Ind.View.Pedidos.Principal.pas</Transaction>
     <Transaction>2021/05/11 23:43:42.000.071,=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
     <Transaction>2021/05/11 23:46:19.000.500,C:\Users\Richard\OneDrive\Delivery\Unit1.pas=C:\Users\Richard\OneDrive\Delivery\Controller\Pedidos\Ind.Controller.Pedidos.pas</Transaction>
     <Transaction>2021/05/11 23:49:14.000.311,=C:\Users\Richard\OneDrive\Delivery\Unit1.pas</Transaction>
@@ -78,6 +78,10 @@
     <Transaction>2022/02/01 17:26:21.874,F:\Projetos\MVC_Delphi\Model\Connection\Firedac\Delivery.Model.Firedac.Query.pas=F:\Projetos\MVC_Delphi\Model\Connection\Firedac\Ind.Model.Firedac.Query.pas</Transaction>
     <Transaction>2022/02/01 17:27:26.088,F:\Projetos\MVC_Delphi\Model\Connection\Delivery.Model.Connection.Interfaces.pas=F:\Projetos\MVC_Delphi\Model\Connection\Delivery.Model.Conexao.Interfaces.pas</Transaction>
     <Transaction>2022/02/01 17:27:42.336,F:\Projetos\MVC_Delphi\Model\Connection\Firedac\Delivery.Model.Firedac.Connection.pas=F:\Projetos\MVC_Delphi\Model\Connection\Firedac\Delivery.Model.Firedac.Conexao.pas</Transaction>
+    <Transaction>2022/02/01 17:36:23.693,=F:\Projetos\MVC_Delphi\Unit1.pas</Transaction>
+    <Transaction>2022/02/01 18:12:25.026,=F:\Projetos\MVC_Delphi\Unit2.pas</Transaction>
+    <Transaction>2022/02/01 18:21:09.470,F:\Projetos\MVC_Delphi\Model\Delivery.Model.Interfaces.pas=F:\Projetos\MVC_Delphi\Unit2.pas</Transaction>
+    <Transaction>2022/02/01 18:29:25.078,F:\Projetos\MVC_Delphi\Model\Delivery.Model.Pedidos.pas=F:\Projetos\MVC_Delphi\Unit1.pas</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
 		<NoProfile iOSSimulator="iPhone5"/>
@@ -162,5 +166,7 @@
     <File Path="Model\Connection\Firedac"/>
     <File Path="Model\Connection\Firedac\Delivery.Model.Firedac.Connection.pas"/>
     <File Path="Model\Connection\Firedac\Delivery.Model.Firedac.Query.pas"/>
+    <File Path="Model\Delivery.Model.Interfaces.pas"/>
+    <File Path="Model\Delivery.Model.Pedidos.pas"/>
   </ProjectSortOrder>
 </BorlandProject>

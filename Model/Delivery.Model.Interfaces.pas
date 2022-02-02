@@ -8,9 +8,11 @@ uses
 type
 
   iModelPedidos = interface
-   ['{53770243-8A22-4020-B25C-E2224438F053}']
+   ['{82ECDA7E-BE4B-430C-91F7-DD51D7B3CECC}']
      function QuantidadeDePedidos : integer;
-     function Pedidos : TDataSet;
+     function Pedidos : TDataSet; overload;
+     function Pedidos(ID : integer): TDataSet; overload;
+     function ItensPedido(ID : integer): TDataSet;
   end;
 
 
