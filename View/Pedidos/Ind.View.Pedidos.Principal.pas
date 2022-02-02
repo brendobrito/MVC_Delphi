@@ -54,7 +54,7 @@ procedure TfrmPedidos.FormCreate(Sender: TObject);
 begin
   FController := TController.New;
   Self.ConfigScrollBox;
-  FController.Pedidos.Bind(ScrollBoxPedidos).AtualizarBind(10);
+  FController.Pedidos.Bind(ScrollBoxPedidos).AtualizarBind(1);
 end;
 
 procedure TfrmPedidos.Button1Click(Sender: TObject);

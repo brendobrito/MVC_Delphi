@@ -22,7 +22,7 @@ uses
 
 begin
   Application.Initialize;
- // ReportMemoryLeaksOnShutdown := true;
+  //ReportMemoryLeaksOnShutdown := true;
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.Run;
 end.

@@ -74,14 +74,13 @@ begin
 
       while FAtualizarBind do
       begin
-        Sleep(100);
         for I := 0 to sDataSet.RecordCount-1 do
         begin
           TThread.Synchronize (TThread.CurrentThread,
           procedure
           begin
             if FListaObjectos.TryGetValue(i, aPedido) = false then begin
-               FListaObjectos.Add(i, TControllerPedidosDrawObjects.Create(Bind).id(sDataSet.FieldByName('idPedido').value).horaPedido(sDataSet.FieldByName('horario').value).nomeCliente(sDataSet.FieldByName('Nome').AsString).status(tpEmPreparo));
+               FListaObjectos.Add(i, TControllerPedidosDrawObjects.Create(Bind).id(sDataSet.FieldByName('idPedido').value).horaPedido(sDataSet.FieldByName('horario').value).nomeCliente(sDataSet.FieldByName('Nome').AsString).status(sDataSet.FieldByName('status').value));
 
                sDataSet.Next;
             end;
@@ -90,6 +89,8 @@ begin
         end;
         Sleep(Segundos*1000);
       end;
+
+      aThread.Terminate
   end);
   aThread.FreeOnTerminate := true;
   aThread.Start;
@@ -118,10 +119,11 @@ destructor TControllerPedidos.Destroy;
 var
  i : integer;
 begin
-  for I := 1 to FListaObjectos.Count do
+  FAtualizarBind := false;
+
+  for I := 0 to FListaObjectos.Count-1 do
     FListaObjectos[i].Destroy;
 
-  FAtualizarBind := false;
   FreeAndNil(FListaObjectos);
   inherited;
 end;

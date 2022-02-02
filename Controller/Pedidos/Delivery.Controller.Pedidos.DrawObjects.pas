@@ -161,13 +161,11 @@ begin
       Anchors := [TAnchorKind.akLeft, TAnchorKind.akTop];
       Position.X := 60;
       Position.Y := 6;
-      Width := 400;
+      Width := 350;
       StyledSettings := [TStyledSetting.Family, TStyledSetting.Style,
       TStyledSetting.FontColor];
       TextSettings.Font.Size := 15;
       TextSettings.HorzAlign := TTextAlign.Leading;
-
-
       TextSettings.FontColor := $FF656565;
     end;
   end;
