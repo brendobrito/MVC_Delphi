@@ -143,7 +143,6 @@ end;
 
 destructor TControllerPedidosDrawObjects.Destroy;
 begin
-  //Não liberar objetos, pois causa MemoryLeak
   inherited;
 end;
 
@@ -184,7 +183,7 @@ begin
     with FStatusRectangle do
     begin
       Parent := FRectangleBase;
-      Position.X := INT(FRectangleBase.Width)-145;
+      Position.X := INT(FRectangleBase.Width)-125;
       Position.Y := (INT(FRectangleBase.Height)-25)/2;
       Size.Width := 110;
       Size.Height := 25;

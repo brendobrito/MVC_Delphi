@@ -1,9 +1,9 @@
-unit Ind.Controller.Pedidos.DrawObjects;
+unit Delivery.Controller.Pedidos.DrawObjects;
 
 interface
 
 uses
-  Ind.Controller.Interfaces, FMX.Types, System.Generics.Collections,
+  Delivery.Controller.Interfaces, FMX.Types, System.Generics.Collections,
   FMX.Objects, FMX.StdCtrls, System.Classes;
 type
   TControllerPedidosDrawObjects = class
@@ -31,7 +31,7 @@ implementation
 
 uses
   FMX.Forms, System.UITypes, System.SysUtils, System.Variants,
-  FMX.Graphics, Ind.Controller, Ind.Controller.StatusPedido;
+  FMX.Graphics, Delivery.Controller, Delivery.Controller.StatusPedido;
 
 { TControllerPedidos }
 
@@ -154,18 +154,19 @@ begin
 
   if not Assigned(FNomeCliente) then begin
 
-    FNomeCliente := TLabel.Create(FRectangleBase);
+    FNomeCliente := TLabel.Create(Nil);
     with FNomeCliente do
     begin
       Parent := FRectangleBase;
       Anchors := [TAnchorKind.akLeft, TAnchorKind.akTop];
       Position.X := 60;
       Position.Y := 6;
-      Width := 400;
+      Width := 350;
       StyledSettings := [TStyledSetting.Family, TStyledSetting.Style,
       TStyledSetting.FontColor];
       TextSettings.Font.Size := 15;
       TextSettings.HorzAlign := TTextAlign.Leading;
+      TextSettings.FontColor := $FF656565;
     end;
   end;
 

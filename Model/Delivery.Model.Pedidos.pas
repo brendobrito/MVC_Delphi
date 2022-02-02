@@ -71,7 +71,7 @@ begin
     FQuery
     .ClearSQL
       .add('SELECT idPedido,idCliente,horario,data,status,Nome FROM Pedidos')
-      .add('INNER JOIN Clientes ON Clientes.ID = idCliente')
+      .add('INNER JOIN Clientes ON Clientes.ID = idCliente order by idPedido asc')
     .&End.Open;
   except
     on e :exception do

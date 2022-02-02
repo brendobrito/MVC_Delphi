@@ -74,6 +74,7 @@ begin
 
       while FAtualizarBind do
       begin
+        Sleep(100);
         for I := 0 to sDataSet.RecordCount-1 do
         begin
           TThread.Synchronize (TThread.CurrentThread,

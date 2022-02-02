@@ -295,23 +295,20 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="View\Ind.View.Principal.pas">
+        <DCCReference Include="View\Delivery.View.Principal.pas">
             <Form>frmPrincipal</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Controller\Delivery.Controller.Interfaces.pas"/>
         <DCCReference Include="Controller\Delivery.Controller.pas"/>
         <DCCReference Include="Controller\Delivery.Controller.Forms.pas"/>
-        <DCCReference Include="View\Pedidos\Ind.View.Pedidos.Principal.pas">
+        <DCCReference Include="View\Pedidos\Delivery.View.Pedidos.Principal.pas">
             <Form>frmPedidos</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Controller\Pedidos\Delivery.Controller.Pedidos.pas"/>
         <DCCReference Include="Controller\Pedidos\Delivery.Controller.Pedidos.DrawObjects.pas"/>
         <DCCReference Include="Controller\Pedidos\Delivery.Controller.StatusPedido.pas"/>
-        <DCCReference Include="View\Cadastros\Produtos\Ind.View.Cadastros.Produtos.Principal.pas">
-            <Form>frmCadastrosProdutos</Form>
-        </DCCReference>
         <DCCReference Include="Model\Connection\Delivery.Model.Connection.Interfaces.pas"/>
         <DCCReference Include="Model\Connection\Firedac\Delivery.Model.Firedac.Connection.pas"/>
         <DCCReference Include="Model\Connection\Firedac\Delivery.Model.Firedac.Query.pas"/>
